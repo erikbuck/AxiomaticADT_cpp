@@ -20,18 +20,10 @@ private:
     std::vector<int> m_contents;
 
     /// Construct a List containing the elements enumerated by the begin and end iterators
-    List(it_t begin, it_t end)
-        : m_contents(std::vector<int>(begin, end))
-    {
-    }
+    List(it_t begin, it_t end);
 
     /// Construct a List that is a copy of the List, other, with element appended.
-    List(int element, const List& other)
-        : m_contents(
-            std::vector<int>(other.m_contents.begin(), other.m_contents.end()))
-    {
-        m_contents.push_back(element);
-    }
+    List(const List& other, int element);
 
     /// \return the "first" element in the List without mutating the List. ["car" is an esoteric acronym, ("contents of the address part of register number") for an IBM 704 computer from the late 1950s](https://en.wikipedia.org/wiki/CAR_and_CDR)
     friend int car(const List&);
@@ -40,7 +32,7 @@ private:
     friend List cdr(const List& l);
 
     /// \return a List constructed as a copy of the List, l, with element appended. ["cons" is an esoteric name for an operation to creates a "cons cell" for an IBM 704 computer from the late 1950s](https://en.wikipedia.org/wiki/CAR_and_CDR). A "cons cell" is the data structure that contains the address and decrement parts referenced by "car" and "cdr".
-    friend List cons(int element, const List& l);
+    friend List cons(const List& l, int element);
 
     /// \return true if and only iff lhs and rhs contain the same number of elements and all elements in lhs are equal to the corresponding elements in rhs.
     friend bool operator==(const List& lhs, const List& rhs);
@@ -62,7 +54,7 @@ public:
 
 extern int car(const List& l);
 extern List cdr(const List& l);
-extern List cons(int element, const List& l);
+extern List cons(const List& l, int element);
 bool operator==(const List& lhs, const List& rhs);
 
 /// This is a synonym for car()
@@ -72,6 +64,6 @@ extern int first(const List& l);
 extern List rest(const List& l);
 
 /// This is a synonym for cons()
-extern List append(int element, const List& l);
+extern List append(const List& l, int element);
 
 #endif /* List_h */
