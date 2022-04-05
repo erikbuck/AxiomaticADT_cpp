@@ -5,7 +5,7 @@ Formal/mathematical notation called **axiomatic semantics** may be used to defin
 
 This example applies Guttag's method to define semantics for the [Stack ADT](Stack_8h.html).
 
-## Guttag's Method
+## Method
 
 1) Define the functional signatures of the operations in the ADT. 
 
