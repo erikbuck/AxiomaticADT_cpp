@@ -61,7 +61,7 @@ Stack stack() { return Stack {}; }
 \anchor AXIOMPush4 \axiom push(): For all S in Stack, top(push(push(S, X), X1) -> X1 ; order matters 
 \ref AXIOMTPush4 "Test"
 **/
-Stack push(const Stack& s, int x) { return append(x, s); }
+Stack push(const Stack& s, int x) { return append(s, x); }
 
 ////////////////////////////////////////////////////////////////////////////////
 // ADT Stack Observers
